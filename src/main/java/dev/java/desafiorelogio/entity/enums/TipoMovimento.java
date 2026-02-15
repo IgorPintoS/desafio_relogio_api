@@ -1,4 +1,4 @@
-package dev.java.desafiorelogio.entity.enuns;
+package dev.java.desafiorelogio.entity.enums;
 
 public enum TipoMovimento {
     QUARTZ, AUTOMATICO, MANUAL;
