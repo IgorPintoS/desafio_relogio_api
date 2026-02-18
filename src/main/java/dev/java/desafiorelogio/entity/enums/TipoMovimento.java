@@ -20,8 +20,18 @@ public enum TipoMovimento {
     public String toApi() {
         return switch (this) {
                 case QUARTZ -> "quartz";
+
                 case AUTOMATICO -> "automatic";
+
                 case MANUAL -> "manual";
         };
+    }
+
+    public static int pontuacaoColecionadorTipoMovimento(TipoMovimento tipoMovimento) {
+        int pontos = 0;
+
+        if (tipoMovimento == TipoMovimento.AUTOMATICO) pontos = 20;
+
+        return pontos;
     }
 }

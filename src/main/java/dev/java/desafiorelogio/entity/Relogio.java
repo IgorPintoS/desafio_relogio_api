@@ -49,16 +49,16 @@ public class Relogio {
     private int resistenciaAguaM;
 
     @Column(nullable = false)
-    private int diamentroMn;
+    private int diamentroMm;
 
     @Column(nullable = false)
-    private int lugToLugMn;
+    private int lugToLugMm;
 
     @Column(nullable = false)
-    private int espessuraMn;
+    private int espessuraMm;
 
     @Column(nullable = false)
-    private int larguraLugMn;
+    private int larguraLugMm;
 
     @Column(nullable = false)
     private long precoEmCentavos;

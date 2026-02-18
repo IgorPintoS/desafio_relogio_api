@@ -34,4 +34,16 @@ public enum MaterialCaixa {
             case CERAMICA -> "ceramic";
         };
     }
+
+    public static int pontuacaoColecionadorMaterialCaixa(MaterialCaixa materialCaixa) {
+        int pontos = 0;
+
+        switch (materialCaixa) {
+            case ACO -> pontos = 10;
+
+            case TITANIO -> pontos = 12;
+        }
+
+        return pontos;
+    }
 }

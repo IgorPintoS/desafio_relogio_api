@@ -26,4 +26,12 @@ public enum TipoVidro {
             case ACRILICO -> "acrylic";
         };
     }
+
+    public static int pontuacaoColecionadorTipoVidro(TipoVidro tipoVidro) {
+        int pontos = 0;
+
+        if (tipoVidro == TipoVidro.SAFIRA) pontos = 25;
+
+        return pontos;
+    }
 }
