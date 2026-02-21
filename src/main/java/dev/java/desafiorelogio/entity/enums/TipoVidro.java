@@ -1,37 +1,23 @@
 package dev.java.desafiorelogio.entity.enums;
 
 public enum TipoVidro {
-    MINERAL, SAFIRA, ACRILICO;
+    MINERAL("mineral", 0),
+    SAFIRA("sapphire", 25),
+    ACRILICO("acrylic", 0);
 
-    public static TipoVidro fromApi(String valor) {
-        if (valor == null || valor.isBlank()) return null;
+    private final String material;
+    private final int pontuacao;
 
-        return switch (valor) {
-            case "mineral" -> MINERAL;
-
-            case "sapphire" -> SAFIRA;
-
-            case "acrylic" -> ACRILICO;
-
-            default -> throw new IllegalArgumentException("Tipo de vidro inválido:" + valor);
-        };
+    TipoVidro(String material, int pontuacao) {
+        this.material = material;
+        this.pontuacao = pontuacao;
     }
 
-    public String toApi() {
-        return switch (this) {
-            case MINERAL -> "mineral";
+    public String getMaterial() {
+        return this.material;
 
-            case SAFIRA -> "sapphire";
 
-            case ACRILICO -> "acrylic";
-        };
-    }
-
-    public static int pontuacaoColecionadorTipoVidro(TipoVidro tipoVidro) {
-        int pontos = 0;
-
-        if (tipoVidro == TipoVidro.SAFIRA) pontos = 25;
-
-        return pontos;
+    public int getPontuacao() {
+        return this.pontuacao;
     }
 }

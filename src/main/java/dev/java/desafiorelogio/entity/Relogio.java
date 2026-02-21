@@ -49,7 +49,7 @@ public class Relogio {
     private int resistenciaAguaM;
 
     @Column(nullable = false)
-    private int diamentroMm;
+    private int diametroMm;
 
     @Column(nullable = false)
     private int lugToLugMm;

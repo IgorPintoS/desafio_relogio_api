@@ -17,7 +17,7 @@ public record RelogioDto(
         int larguraLugMm,
         long precoEmCentavos,
         String urlImagem,
-        String etiquetaResistenciaAgua,
+        String etiquetaResistenciaAguaM,
         int pontuacaoColecionador
 ) {
 }

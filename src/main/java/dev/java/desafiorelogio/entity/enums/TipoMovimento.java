@@ -1,37 +1,23 @@
 package dev.java.desafiorelogio.entity.enums;
 
 public enum TipoMovimento {
-    QUARTZ, AUTOMATICO, MANUAL;
+    QUARTZ("quartz", 0),
+    AUTOMATICO("automatic", 20),
+    MANUAL("manual", 0);
 
-    public static TipoMovimento fromApi(String valor) {
-        if(valor == null || valor.isBlank()) return null;
+    private final String movimento;
+    private final int pontuacao;
 
-        return switch (valor) {
-            case "quartz" -> QUARTZ;
-
-            case "automatic" -> AUTOMATICO;
-
-            case "manual" -> MANUAL;
-
-            default -> throw new IllegalArgumentException("Tipo de movimento inválido: " + valor);
-        };
+    TipoMovimento(String movimento, int pontuacao) {
+        this.movimento = movimento;
+        this.pontuacao = pontuacao;
     }
 
-    public String toApi() {
-        return switch (this) {
-                case QUARTZ -> "quartz";
-
-                case AUTOMATICO -> "automatic";
-
-                case MANUAL -> "manual";
-        };
+    public String getMovimento() {
+        return this.movimento;
     }
 
-    public static int pontuacaoColecionadorTipoMovimento(TipoMovimento tipoMovimento) {
-        int pontos = 0;
-
-        if (tipoMovimento == TipoMovimento.AUTOMATICO) pontos = 20;
-
-        return pontos;
+    public int getPontuacao() {
+        return this.pontuacao;
     }
 }

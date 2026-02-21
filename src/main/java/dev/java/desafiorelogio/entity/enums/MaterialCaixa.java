@@ -1,49 +1,25 @@
 package dev.java.desafiorelogio.entity.enums;
 
 public enum MaterialCaixa {
-    ACO, TITANIO, RESINA, BRONZE, CERAMICA;
+    ACO("steel", 10),
+    TITANIO("titanium", 12),
+    RESINA("resin", 0),
+    BRONZE("bronze", 0),
+    CERAMICA("ceramic", 0);
 
-    public static MaterialCaixa fromApi(String valor) {
-        if (valor == null || valor.isBlank()) return null;
+    private final String material;
+    private final int pontuacao;
 
-        return switch (valor) {
-            case "steel" -> ACO;
-
-            case "titanium" -> TITANIO;
-
-            case "resin" -> RESINA;
-
-            case "bronze" -> BRONZE;
-
-            case "ceramic" -> CERAMICA;
-
-            default -> throw new IllegalArgumentException("Tipo de material da caixa inválido:" + valor);
-        };
+    MaterialCaixa(String material, int pontuacao) {
+        this.material = material;
+        this.pontuacao = pontuacao;
     }
 
-    public String toApi() {
-        return switch (this) {
-            case ACO -> "steel";
-
-            case TITANIO -> "titanium";
-
-            case RESINA -> "resin";
-
-            case BRONZE -> "bronze";
-
-            case CERAMICA -> "ceramic";
-        };
+    public String getMaterial() {
+        return this.material;
     }
 
-    public static int pontuacaoColecionadorMaterialCaixa(MaterialCaixa materialCaixa) {
-        int pontos = 0;
-
-        switch (materialCaixa) {
-            case ACO -> pontos = 10;
-
-            case TITANIO -> pontos = 12;
-        }
-
-        return pontos;
+    public int getPontuacao() {
+        return this.pontuacao;
     }
 }
