@@ -15,7 +15,7 @@ public enum TipoVidro {
 
     public String getMaterial() {
         return this.material;
-
+    }
 
     public int getPontuacao() {
         return this.pontuacao;
