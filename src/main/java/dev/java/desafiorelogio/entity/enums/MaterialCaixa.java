@@ -22,4 +22,17 @@ public enum MaterialCaixa {
     public int getPontuacao() {
         return this.pontuacao;
     }
+
+    public static MaterialCaixa fromApi(String material) {
+        if (material == null || material.isBlank()) {
+            return null;
+        }
+
+        for (MaterialCaixa materialCaixa : MaterialCaixa.values()) {
+            if (materialCaixa.getMaterial().equalsIgnoreCase(material)) {
+                return materialCaixa;
+            }
+        }
+        return null;
+    }
 }

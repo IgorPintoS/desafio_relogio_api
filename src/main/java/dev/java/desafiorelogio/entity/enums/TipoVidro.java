@@ -20,4 +20,17 @@ public enum TipoVidro {
     public int getPontuacao() {
         return this.pontuacao;
     }
+
+    public static TipoVidro fromApi(String vidro) {
+        if (vidro == null || vidro.isBlank()) {
+            return null;
+        }
+
+        for (TipoVidro tipoVidro : TipoVidro.values()) {
+            if (tipoVidro.getMaterial().equalsIgnoreCase(vidro)) {
+                return tipoVidro;
+            }
+        }
+        return null;
+    }
 }

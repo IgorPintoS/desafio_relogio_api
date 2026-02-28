@@ -1,5 +1,7 @@
 package dev.java.desafiorelogio.entity.enums;
 
+import java.util.Arrays;
+
 public enum TipoMovimento {
     QUARTZ("quartz", 0),
     AUTOMATICO("automatic", 20),
@@ -19,5 +21,18 @@ public enum TipoMovimento {
 
     public int getPontuacao() {
         return this.pontuacao;
+    }
+
+    public static TipoMovimento fromApi(String movimento) {
+        if (movimento == null || movimento.isBlank()) {
+            return null;
+        }
+
+        for (TipoMovimento tipoMovimento : TipoMovimento.values()) {
+            if (tipoMovimento.getMovimento().equalsIgnoreCase(movimento)) {
+                return tipoMovimento;
+            }
+        }
+        return null;
     }
 }

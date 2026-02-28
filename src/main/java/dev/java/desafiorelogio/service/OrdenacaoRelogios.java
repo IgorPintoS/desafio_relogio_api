@@ -16,4 +16,17 @@ public enum OrdenacaoRelogios {
     public String getOrdenacao() {
         return this.ordenacao;
     }
+
+    public static OrdenacaoRelogios fromApi(String ordenacao) {
+        if (ordenacao == null || ordenacao.isBlank()) {
+            return MAIS_RECENTES;
+        }
+
+        for (OrdenacaoRelogios ordenacaoRelogio : OrdenacaoRelogios.values()) {
+            if (ordenacaoRelogio.ordenacao.equalsIgnoreCase(ordenacao)) {
+                return ordenacaoRelogio;
+            }
+        }
+        return MAIS_RECENTES;
+    }
 }
