@@ -6,6 +6,7 @@ import dev.java.desafiorelogio.dto.PaginaRelogioDto;
 import dev.java.desafiorelogio.dto.RelogioDto;
 import dev.java.desafiorelogio.entity.Relogio;
 import dev.java.desafiorelogio.entity.enums.MaterialCaixa;
+import dev.java.desafiorelogio.entity.enums.OrdenacaoRelogios;
 import dev.java.desafiorelogio.entity.enums.TipoMovimento;
 import dev.java.desafiorelogio.entity.enums.TipoVidro;
 import dev.java.desafiorelogio.exception.RelogioNaoEncontradoException;

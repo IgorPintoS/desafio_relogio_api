@@ -1,4 +1,4 @@
-package dev.java.desafiorelogio.service;
+package dev.java.desafiorelogio.entity.enums;
 
 public enum OrdenacaoRelogios {
     MAIS_RECENTES("newest"),
