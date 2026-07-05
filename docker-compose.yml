@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: relogio_db_container
+    restart: always
+    environment:
+      POSTGRES_USER: igor_user
+      POSTGRES_PASSWORD: igor_password
+      POSTGRES_DB: relogio_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U igor_user -d relogio_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: relogio_api_container
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/relogio_db
+      - SPRING_DATASOURCE_USERNAME=igor_user
+      - SPRING_DATASOURCE_PASSWORD=igor_password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
