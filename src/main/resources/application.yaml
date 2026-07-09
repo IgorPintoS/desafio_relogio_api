@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev
 
   jpa:
     show-sql: true
@@ -10,9 +8,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
-    datasource:
-      driver-class-name: org.postgresql.Driver
-      url: jdbc:postgresql://localhost:5432/relogio
-      username: postgres
-      password: admin
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5435/relogio_db
+    username: igor_user
+    password: igor_password
